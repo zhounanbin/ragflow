@@ -38,11 +38,18 @@ export default defineConfig({
   proxy: [
     {
       context: ['/api', '/v1'],
-      target: 'http://127.0.0.1:9380/',
+      target: 'https://ragflowbacken.numseek.com/',
       changeOrigin: true,
       ws: true,
       logger: console,
       // pathRewrite: { '^/v1': '/v1' },
+    },
+    {
+      context: ['/document', '/minio'],
+      target: 'https://ragflowminio.numseek.com/',
+      changeOrigin: true,
+      ws: true,
+      logger: console,
     },
   ],
 
